@@ -1,41 +1,56 @@
 'use strict';
-let money = 99000;
-let income = 'delivery';
-let addExpenses = 'Patrol, Food, Skating';
-let deposit = true;
-let mission = 100000;
-let period = 11;
-console.log(typeof(money));
-console.log(typeof(deposit));
-console.log(typeof(income));
-console.log(addExpenses.length);
-console.log('Период равен ' + period + ' месяцев');
-console.log('Цель заработать ' + mission + ' долларов');
-let arrExpenses = addExpenses.toLowerCase().split(" ");
-console.log(arrExpenses);
-let budgetDay = money / 30;
-console.log(budgetDay);
+let money = prompt('Ваш месячный доход?'),
+income = 'delivery',
+deposit = true,
+// addExpenses = 'Patrol Food Skating',
+mission = 100000,
+expences1 = prompt('Введите обязательную статью расходов?'),
+amount1 = prompt('Во сколько это обойдется?'),
+expences2 = prompt('Введите обязательную статью расходов?'),
+amount2 = prompt('Во сколько это обойдется?'),
+addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую'),
+arrExpenses = addExpenses.toLowerCase().split(",");
 
-money = prompt('Ваш месячный доход?');
-addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-deposit = confirm('Есть ли у вас депозит в банке?');
-console.log(money);
-console.log(addExpenses);
-console.log(deposit);
-let expences1 = prompt('Введите обязательную статью расходов?');
-let amount1 = prompt('Во сколько это обойдется?');
-let expences2 = prompt('Введите обязательную статью расходов?');
-let amount2 = prompt('Во сколько это обойдется?');
-let budgetMonth = amount1*1 + amount2*1;
-console.log(budgetMonth);
-console.log('Цель будет достигнута через ' + (Math.ceil(mission / (money*1 - budgetMonth))) + ' месяцев');
-budgetDay = Math.floor(budgetMonth / 30);
-if (budgetDay >= 1200) {
-  console.log('У вас высокий уровень дохода');
-} else if (budgetDay >= 600) {
-  console.log('У вас средний уровень дохода');
-} else if ((budgetDay < 600) && (budgetDay >= 0)) {
-  console.log('К сожалению у вас уровень дохода ниже среднего');
-} else {
-  console.log('Что-то пошло не так');
+function showTypeOf() {
+  console.log(typeof(money));
+  console.log(typeof(deposit));
+  console.log(typeof(income));
 }
+
+function getExpensesMonth() {
+  return amount1*1 + amount2*1;
+}
+
+let amountSum = getExpensesMonth();
+
+function getAccumulatedMonth() {
+  return money - amountSum;
+}
+
+let accumulatedMonth = getAccumulatedMonth(),
+budgetDay = Math.floor((amountSum + accumulatedMonth) / 30);
+
+
+function getTargetMonth() {
+  return Math.ceil(mission / accumulatedMonth);
+}
+
+function getStatusIncome() {
+  if (budgetDay >= 1200) {
+    console.log('У вас высокий уровень дохода');
+  } else if (budgetDay >= 600) {
+    console.log('У вас средний уровень дохода');
+  } else if ((budgetDay < 600) && (budgetDay >= 0)) {
+    console.log('К сожалению у вас уровень дохода ниже среднего');
+  } else {
+    console.log('Что-то пошло не так');
+  }
+}
+
+showTypeOf();
+console.log('Ваши возможные расходы за месяц: ' + arrExpenses);
+console.log('За месяц вы тратите: ' + getExpensesMonth());
+console.log('Цель будет достигнута через ' + (Math.ceil(getTargetMonth())) + ' месяцев');
+console.log('Ваш дневной бюджет составляет: ' + budgetDay + ' рублей');
+getStatusIncome();
+
