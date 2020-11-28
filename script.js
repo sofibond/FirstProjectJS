@@ -21,14 +21,14 @@ function getExpensesMonth() {
   return amount1*1 + amount2*1;
 }
 
-let amountSum = getExpensesMonth();
+// let amountSum = getExpensesMonth();
 
 function getAccumulatedMonth() {
-  return money - amountSum;
+  return money - getExpensesMonth();
 }
 
 let accumulatedMonth = getAccumulatedMonth(),
-budgetDay = Math.floor((amountSum + accumulatedMonth) / 30);
+budgetDay = Math.floor((getExpensesMonth() + accumulatedMonth) / 30);
 
 
 function getTargetMonth() {
