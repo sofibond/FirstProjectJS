@@ -7,14 +7,10 @@ let isNumber = function(n) {
 let money = 40000,
 income = 'delivery',
 deposit = true,
+period = 11,
 mission = 100000,
+addExpenses,
 expenses = [];
-
-let addExpenses = function() {
-  let arrExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-  return arrExpenses.toLowerCase().split(",");
-};
-
 
 function showTypeof(item) {
   console.log(typeof(item));
@@ -25,8 +21,12 @@ let start = function() {
     money = +prompt('Ваш месячный доход?');
   }
   while (!isNumber(money));
-  console.log(money);
+  // console.log(money);
 };
+start();
+
+addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
+addExpenses = addExpenses.toLowerCase().split(",");
 
 let getExpensesMonth = function() {
   let sum = 0;
@@ -36,7 +36,7 @@ let getExpensesMonth = function() {
         sum += +prompt('Во сколько это обойдется?');
       } while (!isNumber(sum));
   }
-  console.log(sum);
+  // console.log(sum);
   return sum;
 };
 
@@ -74,9 +74,9 @@ showTypeof(money);
 showTypeof(deposit);
 showTypeof(income);
 
-start();
-getExpensesMonth();
-console.log('Ваши возможные расходы за месяц: ' + addExpenses());
+// start();
+// getExpensesMonth();
+console.log('Ваши возможные расходы за месяц: ' + addExpenses);
 console.log('За месяц вы тратите: ' + expensesAmount);
 getTargetMonth();
 console.log('Ваш дневной бюджет составляет: ' + budgetDay + ' рублей');
