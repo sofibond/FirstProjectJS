@@ -146,3 +146,29 @@ let toUpper = function() {
   console.log((appData.addExpenses).join(', '));
 };
 toUpper();
+
+let buttonCalculate = document.getElementById('start');
+
+let addButton = document.getElementsByTagName('button');
+
+let depositCheck = document.querySelector('#deposit-check');
+
+let additionalIncome = document.querySelectorAll('.additional_income-item');
+
+let resultValue = document.getElementsByClassName('result-total');
+console.log(resultValue);
+
+let salaryInp = document.querySelector('.salary-amount');
+let incomeItemsTitle = document.querySelector('.income-title')[1];
+let incomeItemsAmount = document.querySelector('.income-amount');
+let addIncomeInp = document.querySelector('.additional_income-item')[0];
+let addIncomeInm = document.querySelector('.additional_income-item')[1];
+let expencesTitleInp = document.querySelector('.expenses-title')[1];
+let expencesAmountInp = document.querySelector('.expenses-amount');
+let selaryInp = document.querySelector('.additional_expenses-item');
+let depositCheckInp = document.querySelector('#deposit-check');
+let depositAmountInp = document.querySelector('.deposit-amount');
+let depositPercentInp = document.querySelector('.deposit-percent');
+let targetAmountInp = document.querySelector('.target-amount');
+let periodSelectInp = document.querySelector('.period-select');
+let periodAmount = document.querySelector('period-amount');
