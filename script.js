@@ -1,10 +1,10 @@
 'use strict';
-let money = 99000;
-let income = 'delivery';
-let addExpenses = 'Patrol, Food, Skating';
-let deposit = true;
-let mission = 100000;
-let period = 11;
+let money = prompt('Ваш месячный доход?'),
+income = 'delivery',
+addExpenses = 'Patrol, Food, Skating',
+deposit = true,
+mission = 100000,
+period = 11;
 console.log(typeof(money));
 console.log(typeof(deposit));
 console.log(typeof(income));
@@ -16,7 +16,6 @@ console.log(arrExpenses);
 let budgetDay = money / 30;
 console.log(budgetDay);
 
-money = prompt('Ваш месячный доход?');
 addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
 deposit = confirm('Есть ли у вас депозит в банке?');
 console.log(money);
