@@ -28,7 +28,7 @@ function getAccumulatedMonth() {
 }
 
 let accumulatedMonth = getAccumulatedMonth(),
-budgetDay = Math.floor((getExpensesMonth() + accumulatedMonth) / 30);
+budgetDay = Math.floor(accumulatedMonth / 30);
 
 
 function getTargetMonth() {
