@@ -4,7 +4,7 @@ let isNumber = function(n) {
   return (!isNaN(parseFloat(n)) && isFinite(n));
 };
 
-let money = 40000,
+let money,
 income = 'delivery',
 deposit = true,
 period = 11,
@@ -29,15 +29,23 @@ addExpenses = prompt('Перечислите возможные расходы �
 addExpenses = addExpenses.toLowerCase().split(",");
 
 let getExpensesMonth = function() {
-  let sum = 0;
+  let sum = 0,
+  amount = 0;
   for (let i = 0; i < 2; i++) {
       expenses[i] = prompt('Введите обязательную статью расходов');
       do {
-        sum += +prompt('Во сколько это обойдется?');
+        sum = +prompt('Во сколько это обойдется?');
+        if (isNumber(sum)) {
+          amount += sum;
+          sum = 0;
+          break;
+        } else {
+          continue;
+        }
       } while (!isNumber(sum));
   }
   // console.log(sum);
-  return sum;
+  return amount;
 };
 
 let expensesAmount = getExpensesMonth();
@@ -47,7 +55,7 @@ function getAccumulatedMonth() {
 }
 
 let accumulatedMonth = getAccumulatedMonth(),
-budgetDay = Math.floor(money / 30);
+budgetDay = Math.floor(accumulatedMonth / 30);
 
 
 function getTargetMonth() {
