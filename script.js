@@ -13,7 +13,7 @@ console.log('Период равен ' + period + ' месяцев');
 console.log('Цель заработать ' + mission + ' долларов');
 let arrExpenses = addExpenses.toLowerCase().split(" ");
 console.log(arrExpenses);
-let budgetDay = money / 30;
+let budgetDay = money*1 / 30;
 console.log(budgetDay);
 
 addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
