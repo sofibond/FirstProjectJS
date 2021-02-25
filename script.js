@@ -4,30 +4,26 @@ let isNumber = function(n) {
   return (!isNaN(parseFloat(n)) && isFinite(n));
 };
 
-let money = 40000,
+let money,
     start = function() {
       do {
         money = +prompt('Ваш месячный доход?');
       }
       while (!isNumber(money));
-      // console.log(money);
     };
 start();
 
 let appData = {
-  income: {},
-  addIncome: [],
+  //income: {},
+  //addIncome: [],
   expenses: {},
-  expense: [],
   addExpenses: [],
   mission: 100000,
-  period: 11,
   budget: money,
   budgetDay: 0,
   budgetMonth: 0,
   expensesMonth: 0,
   accumulatedMonth: 0,
-  sum: 0,
 
   asking: function(){
     let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
@@ -55,10 +51,8 @@ let appData = {
 },
 
   getBudget: function() {
-    // appData.accumulatedMonth = money - appData.getExpensesMonth();
-    // return appData.accumulatedMonth;
     appData.budgetMonth = appData.budget;
-    appData.budgetDay = Math.floor(appData.budgetMonth / 30);
+    appData.budgetDay = Math.floor((appData.budgetMonth - appData.expensesMonth) / 30);
     appData.accumulatedMonth = appData.budgetMonth - appData.expensesMonth;
   },
 
@@ -85,8 +79,6 @@ let appData = {
 
 appData.asking();
 appData.getBudget();
-// appData.getAccumulatedMonth();
-// console.log('Ваши возможные расходы за месяц: ' + appData.addExpenses);
 console.log('За месяц вы тратите: ' + appData.getExpensesMonth());
 appData.getTargetMonth();
 // console.log('Ваш дневной бюджет составляет: ' + appData.budgetDay + ' рублей');
