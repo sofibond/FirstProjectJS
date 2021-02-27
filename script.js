@@ -76,11 +76,9 @@ let appData = {
 },
 
   getBudget: function() {
-    // appData.accumulatedMonth = money - appData.getExpensesMonth();
-    // return appData.accumulatedMonth;
-    appData.budgetMonth = appData.budget;
+    appData.budgetMonth = appData.budget - appData.getExpensesMonth();
     appData.budgetDay = Math.floor(appData.budgetMonth / 30);
-    appData.accumulatedMonth = appData.budgetMonth - appData.expensesMonth;
+    appData.accumulatedMonth = appData.budgetMonth;
   },
 
   getTargetMonth: function() {
