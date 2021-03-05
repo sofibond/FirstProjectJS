@@ -147,14 +147,26 @@ toUpper();
 
 let buttonCalculate = document.getElementById('start');
 
-let addButton = document.getElementsByTagName('button');
+let addButtonFirst = document.getElementsByTagName('button')[0];
+
+let addButtonSecond = document.getElementsByTagName('button')[1];
 
 let depositCheck = document.querySelector('#deposit-check');
 
 let additionalIncome = document.querySelectorAll('.additional_income-item');
 
-let resultValue = document.getElementsByClassName('result-total');
-console.log(resultValue);
+let resultValueBudgetDay = document.getElementsByClassName('result-total')[1];
+
+let resultValueExpencesMonth = document.getElementsByClassName('result-total')[2];
+
+let resultValueAdditionalIncome = document.getElementsByClassName('result-total')[3];
+
+let resultValueAdditionalExpences = document.getElementsByClassName('result-total')[4];
+
+let resultValueIncomePeriod = document.getElementsByClassName('result-total')[5];
+
+let resultValueTargetMonth = document.getElementsByClassName('result-total')[6];
+
 
 let salaryInp = document.querySelector('.salary-amount');
 let incomeItemsTitle = document.querySelector('.income-title')[1];
